@@ -27,7 +27,8 @@ class EditeNotesBody extends StatelessWidget {
             height: 25,
           ),
           CustomAppBar(
-            icon: Icon(Icons.markunread_mailbox_rounded),
+            title: 'Edite Note',
+            icon: Icons.check,
           ),
           SizedBox(
             height: 16,
