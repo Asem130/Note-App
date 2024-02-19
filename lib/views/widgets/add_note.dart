@@ -12,7 +12,14 @@ class AddButtomSheetNote extends StatelessWidget {
         children: [
           CustomTextFormField(
             hintText: 'Title',
-          )
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          CustomTextFormField(
+            hintText: 'Content',
+            maxLines: 5,
+          ),
         ],
       ),
     );
