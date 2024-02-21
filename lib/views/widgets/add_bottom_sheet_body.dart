@@ -19,45 +19,42 @@ class _AddButtomSheetBodyState extends State<AddButtomSheetBody> {
     return Form(
       autovalidateMode: autovalidateMode,
       key: formKey,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-        child: SizedBox(
-          height: 400,
-          child: Column(
-            children: [
-              CustomTextFormField(
-                onSaved: (value) {
-                  title = value;
+      child: SizedBox(
+        height: 400,
+        child: Column(
+          children: [
+            CustomTextFormField(
+              onSaved: (value) {
+                title = value;
+              },
+              hintText: 'Title',
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextFormField(
+              onSaved: (value) {
+                supTitle = value;
+              },
+              hintText: 'Content',
+              maxLines: 5,
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            CustomTextButtom(
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    Navigator.pop(context);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                    
+                  }
                 },
-                hintText: 'Title',
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              CustomTextFormField(
-                onSaved: (value) {
-                  supTitle = value;
-                },
-                hintText: 'Content',
-                maxLines: 5,
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              CustomTextButtom(
-                  onTap: () {
-                    if (formKey.currentState!.validate()) {
-                      formKey.currentState!.save();
-                      Navigator.pop(context);
-                    } else {
-                      autovalidateMode = AutovalidateMode.always;
-                      setState(() {});
-                      
-                    }
-                  },
-                  text: 'Add'),
-            ],
-          ),
+                text: 'Add'),
+          ],
         ),
       ),
     );
