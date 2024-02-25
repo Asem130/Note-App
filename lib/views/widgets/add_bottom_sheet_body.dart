@@ -54,9 +54,11 @@ class _AddButtomSheetBodyState extends State<AddButtomSheetBody> {
                   onTap: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
+                      var currentDate = DateTime.now();
+                      var formattedDate = DateFormat.yMd().format(currentDate);
                       NoteModel note = NoteModel(
                           color: Colors.blue.value,
-                          date: DateFormat.yMMMd().format(DateTime.now()),
+                          date: formattedDate.toString(),
                           subTitle: supTitle!,
                           title: title!);
                       BlocProvider.of<AddNoteCubit>(context).addNote(note);
