@@ -33,7 +33,7 @@ class NoteApp extends StatelessWidget {
         initialRoute: NotesView.id,
         routes: {
           NotesView.id: (context) => const NotesView(),
-          EditeNotes.id: (context) => const EditeNotes(),
+         
         },
         theme:
             ThemeData(fontFamily: 'Crimson Text', brightness: Brightness.dark),

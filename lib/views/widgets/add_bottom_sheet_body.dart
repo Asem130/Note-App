@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:note_app/add_note_cubit/add_note_cubit.dart';
 import 'package:note_app/add_note_cubit/add_note_state.dart';
 import 'package:note_app/models/note_model.dart';
+import 'package:note_app/views/widgets/color_item.dart';
 import 'package:note_app/views/widgets/custom_text_bottm.dart';
 import 'package:note_app/views/widgets/custom_text_feild.dart';
 
@@ -26,7 +27,7 @@ class _AddButtomSheetBodyState extends State<AddButtomSheetBody> {
       autovalidateMode: autovalidateMode,
       key: formKey,
       child: SizedBox(
-        height: 400,
+        
         child: Column(
           children: [
             CustomTextFormField(
@@ -48,6 +49,11 @@ class _AddButtomSheetBodyState extends State<AddButtomSheetBody> {
             const SizedBox(
               height: 40,
             ),
+              const ColorsListview(),
+                const SizedBox(
+              height: 40,
+            ),
+
             BlocBuilder<AddNoteCubit, AddNoteState>(
               builder: (context, state) => CustomTextButtom(
                   isLoading: state is AddNoteLoading ? true : false,
@@ -75,3 +81,6 @@ class _AddButtomSheetBodyState extends State<AddButtomSheetBody> {
     );
   }
 }
+
+
+
