@@ -21,18 +21,20 @@ class AddButtomSheetNote extends StatelessWidget {
           bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
         child: BlocConsumer<AddNoteCubit, AddNoteState>(
-            listener: (context, state) {
-              if (state is AddNoteFailure) {}
-              if (state is AddNoteSuccsess) {
-                Navigator.pop(context);
-                BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-              }
-            },
-            builder: (context, state) => AbsorbPointer(
-                  absorbing: state is AddNoteLoading ? true : false,
-                  child:
-                      const SingleChildScrollView(child: AddButtomSheetBody()),
-                )),
+          listener: (context, state) {
+            if (state is AddNoteFailure) {}
+            if (state is AddNoteSuccsess) {
+              Navigator.pop(context);
+              BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+            }
+          },
+          builder: (context, state) => AbsorbPointer(
+            absorbing: state is AddNoteLoading ? true : false,
+            child: const SingleChildScrollView(
+              child: AddButtomSheetBody(),
+            ),
+          ),
+        ),
       ),
     );
   }
